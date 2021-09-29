@@ -1,0 +1,26 @@
+{
+    "name": "weather-app",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jdelles/weather-app.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jdelles/weather-app/issues"
+    },
+    "homepage": "https://github.com/jdelles/weather-app#readme",
+    "devDependencies": {
+        "css-loader": "^6.3.0",
+        "style-loader": "^3.3.0",
+        "webpack": "^5.55.1",
+        "webpack-cli": "^4.8.0"
+    }
+}
