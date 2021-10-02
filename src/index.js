@@ -1,4 +1,10 @@
 import "./style.css";
-import getWeather from "./weather_api/weather.js";
+import { getWeather } from "./weather_api/weather.js";
+import {
+    kelvinToCelsius,
+    fahrenheitToCelsius,
+    celsiusToFahrenheit,
+} from "./unit_conversion/conversion.js";
 
-console.log(getWeather("london"));
+const test = getWeather("london");
+console.log(test);
