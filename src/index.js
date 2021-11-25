@@ -6,4 +6,5 @@ import {
     celsiusToFahrenheit,
 } from "./unit_conversion/conversion.js";
 
-const test = getWeather("london");
+const cityWeather = getWeather("london");
+console.log(cityWeather);

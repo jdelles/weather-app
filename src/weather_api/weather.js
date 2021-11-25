@@ -5,6 +5,7 @@ async function getWeather(city) {
         const weatherData = await response.json();
         console.log(weatherData);
         console.log(weatherData.main.temp);
+        processWeather(weatherData);
         return weatherData;
     } catch (error) {
         console.log("error in getWeather for: " + city);
@@ -13,7 +14,7 @@ async function getWeather(city) {
 
 async function processWeather(data) {
     console.log("here");
-    return data; //.main.temp;
+    console.log(data.main.temp);
 }
 
 export { getWeather, processWeather };
