@@ -1,0 +1,129 @@
+:root {
+    --color-anti-flash-white: #f2f2f2;
+    --color-white-smoke: #f4faf7;
+    --color-white-cream: #f4fffb;
+    --color-middle-blue: #81d0e8;
+    --color-iceberg: #71a1d1;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-anti-flash-white);
+}
+
+header {
+    text-align: center;
+    background: var(--color-white-smoke);
+    font-size: 24px;
+    padding: 2em;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px 10px 5px 0px;
+    background-color: var(--color-middle-blue);
+    color: var(--color-white-cream);
+    font-size: 18px;
+    border: 1px solid transparent;
+}
+
+button:hover {
+    background: var(--color-iceberg);
+    cursor: pointer;
+}
+
+main {
+    margin: 0 auto;
+    padding: 2em;
+    max-width: 700px;
+}
+
+main h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+main p,
+main li {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--color-middle-blue);
+    color: var(--color-white-smoke);
+    font-size: 16px;
+    padding: 1em;
+    text-align: center;
+}
+
+footer a {
+    color: var(--color-iceberg);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--color-white-smoke);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.ghost-button {
+    padding: 5px 10px;
+    margin: 5px 10px 5px 0px;
+    background-color: var(--color-anti-flash-white);
+    color: var(--color-middle-blue);
+    font-size: 18px;
+    border: 1px solid var(--color-middle-blue);
+}
+
+.ghost-button:hover {
+    color: var(--color-white-cream);
+}
+
+#toDoForm,
+#projectForm {
+    border: 2px solid var(--color-middle-blue);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 5px 10px var(--color-iceberg);
+}
+
+#toDoForm h2,
+#projectForm h2 {
+    margin: 10px auto;
+}
+
+.project-display {
+    margin-bottom: 20px;
+    border: 2px solid var(--color-middle-blue);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 5px 10px var(--color-iceberg);
+}
+
+.project-header,
+.toDo-display {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
