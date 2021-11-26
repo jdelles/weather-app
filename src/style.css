@@ -84,10 +84,6 @@ footer a:hover {
     cursor: pointer;
 }
 
-.hidden {
-    display: none;
-}
-
 .ghost-button {
     padding: 5px 10px;
     margin: 5px 10px 5px 0px;
@@ -101,20 +97,7 @@ footer a:hover {
     color: var(--color-white-cream);
 }
 
-#toDoForm,
-#projectForm {
-    border: 2px solid var(--color-middle-blue);
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 5px 10px var(--color-iceberg);
-}
-
-#toDoForm h2,
-#projectForm h2 {
-    margin: 10px auto;
-}
-
-.project-display {
+.weather-box {
     margin-bottom: 20px;
     border: 2px solid var(--color-middle-blue);
     border-radius: 10px;
@@ -122,8 +105,11 @@ footer a:hover {
     box-shadow: 5px 10px var(--color-iceberg);
 }
 
-.project-header,
-.toDo-display {
+.weather-box h2 {
+    margin: 10px auto;
+}
+
+.weather-box-header {
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
