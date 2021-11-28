@@ -3,8 +3,11 @@ import {
     fahrenheitToCelsius,
     celsiusToFahrenheit,
 } from "../unit_conversion/conversion.js";
+import { getWeather } from "../weather_api/weather.js";
 
-function updateDisplay(city, temp) {
+// add functionality to convert between C and F
+
+function updateDisplay(city, tempCurrent, tempMax, tempMin, condition) {
     const display = document.querySelector("main");
     display.innerHTML = "";
 
@@ -12,64 +15,69 @@ function updateDisplay(city, temp) {
     box.className = "weather-box";
 
     const intro = document.createElement("h2");
-    intro.textContent = `${city} Current Weather`;
+    intro.textContent = `${city} Weather`;
 
     const info = document.createElement("div");
+
+    // current temp
     const currentTemp = document.createElement("p");
-    const cityTemp = kelvinToCelsius(temp);
-    let cityTempF = celsiusToFahrenheit(cityTemp);
-    cityTempF = Math.round(cityTempF);
-    currentTemp.textContent = `The current temperature is ${cityTempF} degrees`;
+    let cityTemp = kelvinToCelsius(tempCurrent);
+    cityTemp = celsiusToFahrenheit(cityTemp);
+    cityTemp = Math.round(cityTemp);
+    currentTemp.textContent = `The current temperature is ${cityTemp} degrees`;
+
+    // high temp
+    const highTemp = document.createElement("p");
+    let cityHigh = kelvinToCelsius(tempMax);
+    cityHigh = celsiusToFahrenheit(cityHigh);
+    cityHigh = Math.round(cityHigh);
+    highTemp.textContent = `The high temperature is ${cityHigh} degrees`;
+
+    // low temp
+    const lowTemp = document.createElement("p");
+    let cityLow = kelvinToCelsius(tempMin);
+    cityLow = celsiusToFahrenheit(cityLow);
+    cityLow = Math.round(cityLow);
+    lowTemp.textContent = `The low temperature is ${cityLow} degrees`;
+
+    const currentCondition = document.createElement("p");
+    currentCondition.textContent = `The current condition is ${condition}`;
+
     info.appendChild(currentTemp);
+    info.appendChild(highTemp);
+    info.appendChild(lowTemp);
+    info.appendChild(currentCondition);
 
     box.appendChild(intro);
     box.appendChild(info);
     display.appendChild(box);
 }
 
-// function searchBox() {
-//     const projectDiv = document.createElement("div");
+function searchBox() {
+    const search = document.createElement("div");
+    const form = document.createElement("form");
 
-//     const intro = document.createElement("h2");
-//     intro.textContent = "Add a new project";
+    const location = document.createElement("input");
+    location.type = "text";
+    location.placeholder = "Enter Your Location: ";
+    location.id = "cityLocation";
 
-//     const form = document.createElement("form");
+    const submit = document.createElement("button");
+    submit.textContent = "Submit";
+    submit.addEventListener("click", (event) => {
+        event.preventDefault();
+        const city = document.querySelector("#cityLocation").value;
+        location.value = "";
+        getWeather(city);
+    });
 
-//     const title = document.createElement("input");
-//     title.type = "text";
-//     title.placeholder = "Project Name";
-//     title.id = "projectName";
+    form.appendChild(location);
+    form.appendChild(submit);
 
-//     const submit = document.createElement("button");
-//     submit.textContent = "Submit";
-//     submit.addEventListener('click', (event) => {
-//         event.preventDefault();
-//         const name = document.querySelector("#projectName").value;
-//         projectManager.createProject(name);
-//         document.querySelector("#projectForm").classList.add("hidden");
-//         updateDisplay();
-//     });
+    search.appendChild(form);
 
-//     const cancel = document.createElement("button");
-//     cancel.classList.add('ghost-button');
-//     cancel.textContent = "Cancel";
-//     cancel.addEventListener('click', (event) => {
-//         event.preventDefault();
-//         document.querySelector("#projectName").value = "";
-//         showProjectList();
-//     });
-
-//     form.appendChild(title);
-//     form.appendChild(submit);
-//     form.appendChild(cancel);
-
-//     projectDiv.appendChild(intro);
-//     projectDiv.appendChild(form);
-//     projectDiv.classList.add('hidden');
-//     projectDiv.id = "projectForm";
-
-//     return projectDiv;
-// }
+    return search;
+}
 
 function loadHeader() {
     const header = document.createElement("header");
@@ -81,11 +89,7 @@ function loadHeader() {
 
     const nav = document.createElement("nav");
 
-    const search = document.createElement("button");
-    search.addEventListener("click", (event) => {
-        event.preventDefault();
-    });
-    search.textContent = "Search Placeholder";
+    const search = searchBox();
 
     nav.appendChild(search);
 

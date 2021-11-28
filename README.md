@@ -35,9 +35,9 @@ This is the final project in this section of the JavaScript path titled Asynchro
 
 -   [x] Setup GitHub repo, basic file structure, webpack
 -   [x] Write the functions that fetch data from the API and log data to console
--   [ ] Write the functions that process the JSON data retrieved from the API and return an object with data required for the app
--   [ ] Create a simple form that will allow users to enter a location and fetch the weather data for that location
--   [ ] Display the info on the webpage
+-   [x] Write the functions that process the JSON data retrieved from the API and return an object with data required for the app
+-   [x] Create a simple form that will allow users to enter a location and fetch the weather data for that location
+-   [x] Display the info on the webpage
 -   [x] Add styling
 -   [ ] Optional: Add a "loading" graphic that displays while the data is being retrieved
 -   [x] Publish to GitHub - will require additional config since it's looking for index.html but webpack is setup to use dist/index.html
